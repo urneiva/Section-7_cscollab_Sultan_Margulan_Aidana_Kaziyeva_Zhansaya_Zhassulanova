@@ -1,0 +1,149 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk25'
+Slack : -8.009
+TNS   : -306.004
+
+Type  : Slow 1100mV 85C Model Setup 'hvsync:test|vsync'
+Slack : -6.729
+TNS   : -611.355
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -3.035
+TNS   : -3.035
+
+Type  : Slow 1100mV 85C Model Hold 'hvsync:test|vsync'
+Slack : 0.267
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clk25'
+Slack : 0.424
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 1.173
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.480
+TNS   : -0.874
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'hvsync:test|vsync'
+Slack : -0.394
+TNS   : -74.689
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk25'
+Slack : -0.394
+TNS   : -40.372
+
+Type  : Slow 1100mV 0C Model Setup 'clk25'
+Slack : -8.091
+TNS   : -305.355
+
+Type  : Slow 1100mV 0C Model Setup 'hvsync:test|vsync'
+Slack : -6.451
+TNS   : -593.468
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -2.824
+TNS   : -2.824
+
+Type  : Slow 1100mV 0C Model Hold 'hvsync:test|vsync'
+Slack : 0.329
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clk25'
+Slack : 0.441
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 1.059
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.499
+TNS   : -0.893
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'hvsync:test|vsync'
+Slack : -0.394
+TNS   : -71.770
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk25'
+Slack : -0.394
+TNS   : -39.371
+
+Type  : Fast 1100mV 85C Model Setup 'clk25'
+Slack : -4.440
+TNS   : -156.859
+
+Type  : Fast 1100mV 85C Model Setup 'hvsync:test|vsync'
+Slack : -3.507
+TNS   : -319.589
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -2.299
+TNS   : -2.299
+
+Type  : Fast 1100mV 85C Model Hold 'hvsync:test|vsync'
+Slack : 0.115
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk25'
+Slack : 0.159
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 1.109
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.499
+TNS   : -0.646
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk25'
+Slack : -0.022
+TNS   : -0.128
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'hvsync:test|vsync'
+Slack : 0.032
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk25'
+Slack : -4.063
+TNS   : -142.072
+
+Type  : Fast 1100mV 0C Model Setup 'hvsync:test|vsync'
+Slack : -3.092
+TNS   : -281.129
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -1.886
+TNS   : -1.886
+
+Type  : Fast 1100mV 0C Model Hold 'hvsync:test|vsync'
+Slack : 0.117
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk25'
+Slack : 0.146
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.803
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.491
+TNS   : -0.640
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk25'
+Slack : 0.012
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'hvsync:test|vsync'
+Slack : 0.046
+TNS   : 0.000
+
+------------------------------------------------------------

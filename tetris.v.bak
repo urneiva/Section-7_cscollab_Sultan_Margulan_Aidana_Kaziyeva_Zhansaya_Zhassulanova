@@ -1,0 +1,51 @@
+module draw(clk, reset, sw, sw1, MTL2_DCLK, MTL2_R, MTL2_G, MTL2_B, MTL2_HSD, MTL2_VSD);
+input clk;input sw;
+input sw1;input reset;
+output MTL2_DCLK;output [7:0] MTL2_R;
+output [7:0] MTL2_G;output [7:0] MTL2_B;
+output MTL2_HSD;output MTL2_VSD;
+reg [7:0] red, green, blue;
+wire res=~reset;
+wire display_on;wire [11:0] hpos;
+wire [11:0] vpos;
+reg clk25 = 0;
+always @(posedge clk) clk25<=~clk25;
+hvsync test(
+ .clk(clk25), .reset(0),
+ .data_enable(display_on), .hsync(MTL2_HSD),
+ .vsync(MTL2_VSD), .hpos(hpos),
+ .vpos(vpos)
+);
+localparam LINE = 799;localparam SCREEN = 479;
+wire data_enable = ((hpos <= LINE && hpos >= 0) && (vpos <= SCREEN && vpos >= 0));localparam ball_size = 100;
+localparam ball_h_init = 400 - ball_size/2;localparam ball_v_init = 240 - ball_size/2;
+reg[11:0] ball_hspeed;
+reg[11:0] ball_vspeed;
+reg[11:0] ball_hpos = ball_h_init;reg[11:0] ball_vpos = ball_v_init;
+always @(negedge MTL2_VSD) begin
+if(sw) begin if(ball_hpos >= 12'd700) 
+  begin   ball_hspeed = -12'd3;
+  end if(ball_hpos <= 12'd0) 
+  begin    ball_hspeed = 12'd3;
+  end ball_hpos = ball_hpos + ball_hspeed;
+end 
+if(sw1) begin if(ball_vpos >= 12'd380) 
+  begin   ball_vspeed = -12'd2;
+  end if(ball_vpos <= 12'd0) 
+  begin   ball_vspeed = 12'd2; 
+  end ball_vpos = ball_vpos + ball_vspeed;
+end 
+end
+wire [11:0] hdif = hpos - ball_hpos;wire [11:0] vdif = vpos - ball_vpos;
+wire ball_hgfx = hdif < ball_size;
+wire ball_vgfx = vdif < ball_size;wire ball_gfx = ball_hgfx && ball_vgfx;
+always @(posedge clk25)
+begin if(ball_gfx && data_enable) begin
+  red <= 8'h00;
+  green <= 8'hee;  blue <= 8'h00;
+ endelse begin
+  red<=8'd0;  green<=8'd0;
+  blue<=8'd0; end
+endassign MTL2_DCLK=clk25;
+assign MTL2_R=red;assign MTL2_G=green;
+assign MTL2_B=blue;endmodule

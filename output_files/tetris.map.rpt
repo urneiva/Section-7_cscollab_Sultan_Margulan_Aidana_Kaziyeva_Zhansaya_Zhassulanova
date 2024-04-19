@@ -1,0 +1,557 @@
+Analysis & Synthesis report for tetris
+Fri Apr 19 17:32:21 2024
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: hvsync:test
+ 13. Port Connectivity Checks: "hvsync:test"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Apr 19 17:32:21 2024          ;
+; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                   ; tetris                                         ;
+; Top-level Entity Name           ; tetris                                         ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 173                                            ;
+; Total pins                      ; 66                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; tetris             ; tetris             ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                 ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------+---------+
+; tetris.v                         ; yes             ; User Verilog HDL File        ; C:/Users/dimka/Desktop/tetris/tetris.v       ;         ;
+; definitions.vh                   ; yes             ; Auto-Found Unspecified File  ; C:/Users/dimka/Desktop/tetris/definitions.vh ;         ;
+; hvsync.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/dimka/Desktop/tetris/hvsync.v       ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------+---------+
+
+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 308               ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 495               ;
+;     -- 7 input functions                    ; 1                 ;
+;     -- 6 input functions                    ; 116               ;
+;     -- 5 input functions                    ; 55                ;
+;     -- 4 input functions                    ; 100               ;
+;     -- <=3 input functions                  ; 223               ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 173               ;
+;                                             ;                   ;
+; I/O pins                                    ; 66                ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; hvsync:test|vsync ;
+; Maximum fan-out                             ; 125               ;
+; Total fan-out                               ; 2489              ;
+; Average fan-out                             ; 2.98              ;
++---------------------------------------------+-------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |tetris                    ; 495 (459)           ; 173 (147)                 ; 0                 ; 0          ; 66   ; 0            ; |tetris             ; tetris      ; work         ;
+;    |hvsync:test|           ; 36 (36)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |tetris|hvsync:test ; hvsync      ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; green[0,4]                            ; Stuck at GND due to stuck port data_in ;
+; block_hpos[0]                         ; Stuck at GND due to stuck port data_in ;
+; block_vpos[0]                         ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 4 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 173   ;
+; Number of registers using Synchronous Clear  ; 102   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 72    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; block[1]                                ; 2       ;
+; block_hpos[2]                           ; 4       ;
+; block_vpos[4]                           ; 6       ;
+; block_vpos[2]                           ; 7       ;
+; block_vpos[1]                           ; 8       ;
+; block_vpos[6]                           ; 9       ;
+; block_vpos[7]                           ; 9       ;
+; block_hpos[4]                           ; 3       ;
+; block_hpos[7]                           ; 4       ;
+; block[4]                                ; 2       ;
+; block[5]                                ; 2       ;
+; block[3]                                ; 2       ;
+; Total number of inverted registers = 12 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |tetris|block_hpos[11]     ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |tetris|block_vpos[3]      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |tetris|score[10]          ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; Yes        ; |tetris|block[2]           ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |tetris|block_hpos[7]      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |tetris|block_vpos[7]      ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; Yes        ; |tetris|block[1]           ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; Yes        ; |tetris|block[5]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |tetris|d                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: hvsync:test ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; HDISPLAY       ; 800   ; Signed Integer                  ;
+; HFRONT         ; 210   ; Signed Integer                  ;
+; HSPULSE        ; 23    ; Signed Integer                  ;
+; HTOTAL         ; 1056  ; Signed Integer                  ;
+; HBACK          ; 23    ; Signed Integer                  ;
+; VDISPLAY       ; 480   ; Signed Integer                  ;
+; VBOTTOM        ; 22    ; Signed Integer                  ;
+; VSPULSE        ; 5     ; Signed Integer                  ;
+; VTOTAL         ; 525   ; Signed Integer                  ;
+; VTOP           ; 18    ; Signed Integer                  ;
+; HA_END         ; 799   ; Signed Integer                  ;
+; HS_STA         ; 1009  ; Signed Integer                  ;
+; HS_END         ; 1032  ; Signed Integer                  ;
+; LINE           ; 1055  ; Signed Integer                  ;
+; VA_END         ; 479   ; Signed Integer                  ;
+; VS_STA         ; 501   ; Signed Integer                  ;
+; VS_END         ; 506   ; Signed Integer                  ;
+; SCREEN         ; 524   ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hvsync:test"                                                                                                                                                                              ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reset       ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; reset[-1]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; data_enable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 173                         ;
+;     ENA               ; 14                          ;
+;     ENA SCLR          ; 58                          ;
+;     SCLR              ; 44                          ;
+;     plain             ; 57                          ;
+; arriav_io_obuf        ; 34                          ;
+; arriav_lcell_comb     ; 496                         ;
+;     arith             ; 199                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 182                         ;
+;         2 data inputs ; 3                           ;
+;         4 data inputs ; 11                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 296                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 89                          ;
+;         5 data inputs ; 55                          ;
+;         6 data inputs ; 116                         ;
+; boundary_port         ; 66                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 5.34                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+    Info: Processing started: Fri Apr 19 17:32:10 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tetris -c tetris
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tetris.v
+    Info (12023): Found entity 1: tetris File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 3
+Warning (12019): Can't analyze file -- file bcd_display.v is missing
+Info (12127): Elaborating entity "tetris" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at tetris.v(19): object "res" assigned a value but never read File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 19
+Warning (10036): Verilog HDL or VHDL warning at tetris.v(76): object "LR_block" assigned a value but never read File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 76
+Warning (10036): Verilog HDL or VHDL warning at tetris.v(77): object "TR_block" assigned a value but never read File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 77
+Warning (10036): Verilog HDL or VHDL warning at tetris.v(78): object "IR_block" assigned a value but never read File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 78
+Warning (10036): Verilog HDL or VHDL warning at tetris.v(79): object "ZR_block" assigned a value but never read File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 79
+Warning (10036): Verilog HDL or VHDL warning at tetris.v(251): object "block_has_landed" assigned a value but never read File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 251
+Warning (10855): Verilog HDL warning at tetris.v(81): initial value for variable blocks should be constant File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 81
+Warning (10855): Verilog HDL warning at tetris.v(88): initial value for variable blocks should be constant File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 88
+Warning (12125): Using design file hvsync.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: hvsync File: C:/Users/dimka/Desktop/tetris/hvsync.v Line: 5
+Info (12128): Elaborating entity "hvsync" for hierarchy "hvsync:test" File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 139
+Warning (10230): Verilog HDL assignment warning at hvsync.v(42): truncated value with size 32 to match size of target (1) File: C:/Users/dimka/Desktop/tetris/hvsync.v Line: 42
+Warning (10230): Verilog HDL assignment warning at hvsync.v(43): truncated value with size 32 to match size of target (1) File: C:/Users/dimka/Desktop/tetris/hvsync.v Line: 43
+Warning (10230): Verilog HDL assignment warning at hvsync.v(61): truncated value with size 32 to match size of target (1) File: C:/Users/dimka/Desktop/tetris/hvsync.v Line: 61
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 9
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "MTL2_G[0]" is stuck at GND File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 13
+    Warning (13410): Pin "MTL2_G[4]" is stuck at GND File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Warning (20013): Ignored 67 assignments for entity "DE1_SoC" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[32] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[33] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[34] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[35] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_B[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_DCLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_G[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_HSD -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_R[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_TOUCH_I2C_SCL -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_TOUCH_I2C_SDA -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_TOUCH_INT_n -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MTL2_VSD -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk -entity DE1_SoC was ignored
+Warning (20013): Ignored 24 assignments for entity "draw" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity draw -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity draw -section_id Top was ignored
+Info (144001): Generated suppressed messages file C:/Users/dimka/Desktop/tetris/output_files/tetris.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset" File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 8
+    Warning (15610): No output dependent on input pin "sw" File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 5
+    Warning (15610): No output dependent on input pin "sw1" File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 6
+    Warning (15610): No output dependent on input pin "sw2" File: C:/Users/dimka/Desktop/tetris/tetris.v Line: 7
+Info (21057): Implemented 630 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 27 output pins
+    Info (21060): Implemented 34 bidirectional pins
+    Info (21061): Implemented 564 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 151 warnings
+    Info: Peak virtual memory: 4850 megabytes
+    Info: Processing ended: Fri Apr 19 17:32:21 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:15
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/dimka/Desktop/tetris/output_files/tetris.map.smsg.
+
+
